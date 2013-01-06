@@ -1,0 +1,5 @@
+投稿 No [% entry.entry_no %] を削除します．問題なければ以下のボタンを押下して下さい．
+
+<form method="POST"><input type="hidden" name="entry.delete.confirmed" value="confirmed" /><button type="Submit">削除</button></form>
+
+[%INCLUDE 'WWW/entry.tt'%]

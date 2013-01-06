@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="[% pagelang %]">
+    <head>
+        <meta http-equiv="Content-Type" content="text/htmll; charset=UTF-8" />
+        <meta http-equiv="Content-Style-Type" content="text/css; charset=UTF-8">
+        <meta http-equiv="Content-Script-Type" content="text/javascript; charset=UTF-8">
+        <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/static/bootstrap/css/bootstrap-responsive.min.css" />
+        <link rel="stylesheet" href="/static/site/style/default.css" />
+
+        <title>[% page_title %] / [%c.config.name%]</title>
+    </head>
+    <body>
+        <div class="body_header">
+            <div class="topbar">
+            <ul id="pans">
+                [% FOREACH pan IN pans %]
+                <li>&gt; <a href="[%pan.uri | html%]">[%pan.text%]</a></li>
+                [%END%]
+            </ul></div>
+            <h1>[% page_title %] / [%c.config.name%]</h1>
+        </div>
+        <div id="errors">
+            [%IF error_messages %]
+            <ul style="color:red">
+                [%FOREACH error_message IN error_messages %]
+                <li>[%error_message%]</li>
+                [%END%]
+            </ul>
+            [%END%]
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span8" style="padding: 0em 5em;">
+                    [%content%]
+                </div>
+                <div class="span4" style="padding: 0em;">
+                    [% IF pager %]
+                   <div class="section">
+                        [%- pager.total_entries %] 件の記事があります．
+                        [%- IF pager.last_page > 1 # 複数ページに別れている場合 %]
+                            [%- pager.first %]から[%- pager.last %]を表示します．
+                            
+                            
+                            [%- FOREACH num = [pager.first_page .. pager.last_page] %]
+                              [%- IF num == pager.current_page %][[% num %]]
+                              [%- ELSE %]<a href="[% c.uri_for(c.request.path, {page=>num})%]">[[% num %]]</a>[% END %]
+                            [%- END %]
+                        [%- END %]
+                    </div>
+                    [%END%]
+    
+                    <div class="section">
+                        <h3>Tags</h3>
+                        <ul>
+                            [%FOREACH tag IN tags -%]
+                            <li><a href="[%tag.uri | html%]">[%tag.title | html%]</a></li>
+                            [%END -%]
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h3><a href="/.admin">Admin</a></h3>
+                        <div><a href="/.admin/entry/create">新規投稿</a>, <a href="/.admin/tag/">タグ管理</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+        
+      <div id="footer" style="margin-top: 5em;">
+          <div class="container">&nbsp;
+          </div>
+      </div>
+
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+        <script type='text/javascript' src="/static/bootstrap/js/bootstrap.min.js"></script>
+    </body>
+</html>

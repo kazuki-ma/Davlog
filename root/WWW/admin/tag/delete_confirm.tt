@@ -1,0 +1,14 @@
+<h2>削除の確認</h2>
+<div>
+    <p>タグ <strong>[% tag.title | html %]</strong> を削除します．</p>
+    
+    <p>このタグに関連づけられた記事からタグは削除されます．</p>
+    
+    <p>実行するには以下のリンクをクリックしてください．</p>
+    
+    <form action="/.admin/tag/delete">
+        <input type="hidden" name="tag_no" value="[%c.req.params.tag_no | html%]" />
+        <button type="Submit" name="confirm" value="confirm">削除</button>
+    </form>
+    
+</div>

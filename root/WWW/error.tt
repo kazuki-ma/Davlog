@@ -1,0 +1,8 @@
+<ul style="color: red;">
+[% IF error_message -%]
+<li>[% error_message %]</li>
+[%- END %]
+[%- FOREACH error_message IN fatail_error_messages %]
+<li>[% error_message | html %]</li>
+[%- END %]
+</ul>

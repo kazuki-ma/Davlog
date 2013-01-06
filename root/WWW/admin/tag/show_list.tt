@@ -1,0 +1,59 @@
+
+<style>
+    table td, table th{
+        border: solid 1px black;
+        text-align: center;
+    }
+    table tr {
+        height: 2em;
+    }
+    #new_tag td{
+        padding: 0px !important;
+        margin: 0px !important;
+        overflow: hidden;
+    }
+    #new_tag td input[type='text']{
+        margin: 0px;
+        display: block;
+        padding: 0px;
+        border-style: none;
+        border-radius: 0px;
+        text-align: center;
+    }
+</style>
+
+<form method="post" action="/.admin/tag/create" id="tag_list_edit">
+<table class="tag_table">
+    <thead>
+        <tr>
+            <th>タグ名</th>
+            <th>スタブ</th>
+            <th>編集</th>
+            <th>削除</th>
+        </tr>
+    </thead>
+    <tbody>
+        [% FOREACH tag IN tags %]
+        <tr>
+            <td>[% tag.title | html %]</td>
+            <td><a href="[%tag.uri%]">[% tag.stub  | html %]</a></td>
+            <td><a href="/.admin/tag/edit?tag_no=[% tag.tag_no | uri%]">編集</a></td>
+            <td><a href="/.admin/tag/delete?tag_no=[% tag.tag_no | uri%]">削除</a></td>
+        </tr>
+        [% END %]
+        <tr id="new_tag">
+            <td class="input_cell">[%tag_form.field('title').render_element(tes)%]</td>
+            <td class="input_cell">[%tag_form.field('stub').render_element%]</td>
+            <td colspan="2"><button type="Submit" value="create" id="action" name="action">作成</button></td>
+        </tr>
+    </tbody>
+    <tfoot style="display: none">
+        <tr>
+            <th>タグ名</th>
+            <th>スタブ</th>
+            <th>編集</th>
+            <th>削除</th>
+        </tr>
+    </tfoot>
+</table>
+</form>

@@ -1,0 +1,18 @@
+<form method="post" action="[%c.request.uri%]">
+    <table>
+        <tr>
+            <th>テキスト</th>
+            <td class="input_cell">[%tag_form.field('title').render_element%]</td>
+        </tr>
+        <tr>
+            <th>スタブ</th>
+            <td class="input_cell">[%tag_form.field('stub').render_element%]</td>
+        </tr>
+    </table>
+    <div style="">
+        <td><button value="update" type="Submit" name="action">更新</button> 
+            / <button value="delete" type="Submit" name="action">削除</button></td>
+    </div>
+</form>
+
+<a href="/.admin/tag/list">戻る</a>

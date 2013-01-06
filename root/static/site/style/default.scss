@@ -1,0 +1,106 @@
+body {
+    line-height: 2;
+}
+
+.indivisual_entry{
+    margin-top: 1em;
+}
+
+div.section_header h2{
+    border-bottom: dashed 1px gray;
+    margin-bottom: 0px;
+}
+div.section_header .entry_meta_info{
+    font-size: small;
+    color: gray;
+    font-family:monospace;
+    text-align: right;
+}
+
+div.body_header h1{
+    break: both;
+    margin: 1em;
+    font-size: large;
+}
+
+.topbar{
+    background-color: black;
+    color: white;
+    width: 100%;
+    position:absolute;
+    top: 0px;
+    left: 0px;
+    line-height: 1;
+    
+    *, *:hover {
+      color: inherit;
+      display: inline;
+    }
+}
+
+
+table {
+  border: solid 1px black;
+  
+  th, td{
+    border: solid 1px black;
+    padding: 0 1em;
+  }
+}
+
+div.indivisual_entry {
+  .entry_footer{
+    font-size: small;
+    color: gray;
+
+    .tags {
+      text-align: right;
+    }
+    
+    dl {    
+      margin: 0px;
+      dt, dd{
+        display: inline;
+        text-indent: 0px;
+        margin: 0px;
+      }
+      dt {
+        margin-left: 0.5em;
+        margin-right: 0.2em;
+      }
+    }
+  }
+}
+
+dl dd {
+  input, textarea{
+    width: 100%;
+  }
+  
+  textarea{
+    min-height: 10em;
+  }
+}
+
+form label{
+    display: inline-block;
+    margin-left: 0.1em;
+    margin-right: 1em;
+}
+
+form table {
+  td, th{
+    
+    &.input_cell {
+      padding: 0px !important;
+      
+      
+      input {
+        margin: 1em;
+        padding-left:1em;
+      }
+    }
+        
+  }
+}
+

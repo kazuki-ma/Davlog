@@ -1,0 +1,26 @@
+<div class="section">
+    <div class="section_header">
+        <h2>[%entry.title | html %]</h2>
+        <div class="entry_meta_info">
+            [% entry.update_date | html %]
+        </div>
+    </div>
+    <div class="section_body">
+        <table>
+            <thead>
+                <tr>
+                    <th>DateTime</th>
+                </tr>
+            </thead>
+            <tbody>
+                [% FOREACH revision IN revisions%]
+                <tr>
+                    <td><a href="[%entry.uri | uri%]/revision/[%revision.revision_no | uri%]">[% revision.update_date | html%]</a></td>
+                </tr>
+                [% END %]
+            </tbody>
+            <tfoot></tfoot>
+        </table>
+    </div>
+    <div class="section_footer"></div>
+</div>

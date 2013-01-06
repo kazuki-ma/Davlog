@@ -1,0 +1,30 @@
+
+<div class="section section_2 indivisual_entry">
+    <div class="section_header"><h2><a href="[%entry.uri | html%]">[% entry.title | html %]</a></h2>
+    </div>
+    <div class="section_body">[% entry.get_html %]</div>
+    <div class="section_footer entry_footer">
+        <div class="tags">Tags : 
+        [%IF entry.tags %]
+            [%FOREACH tag IN entry.tags%]
+                <a href="[%tag.uri | html%]">[%tag.title | html%]</a>
+            [%END%]
+        [% ELSE %]
+            なし
+        [% END %]
+        </div>
+        <div class="entry_meta_info" style="text-align: right">
+            <dl>
+                <dt>Create</dt>
+                <dd>[% entry.create_date | html%]</dd>
+                <dt>Update</dt>
+                <dd>[% entry.update_date | html%]</dd>
+[% IF c.user_exists %]
+                <dt>Edit</dt>
+                <dd><a href="/.admin/entry/edit?entry_no=[%entry.entry_no | uri%]">Edit</a></dd>
+[% END %]
+
+            </dl>
+        </div>
+        </div>
+</div>

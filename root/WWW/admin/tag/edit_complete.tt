@@ -1,0 +1,56 @@
+
+<style>
+    table td, table th{
+        border: solid 1px black;
+        text-align: center;
+    }
+    #new_tag td{
+        padding: 0px;
+        margin: 0px;
+        overflow: hidden;
+    }
+    #new_tag td input[type='text']{
+        margin: 0px;
+        padding: 0px;
+        height: 100%;
+        width: 100%;
+        border-style: none;
+        border-radius: 0px;
+        
+        
+    }
+</style>
+<form method="post" action="[%c.request.uri%]">
+    [%c%]
+    
+<table>
+    <thead>
+        <tr>
+            <th>タグ名</th>
+            <th>スタブ</th>
+            <th>削除リンク</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr id="new_tag">
+            <td>[%new_tag.field('text').render_element%]</td>
+            <td>[%new_tag.field('stub').render_element%]</td>
+            <td>[%new_tag.field('add').render_element%]</td>
+        </tr>
+        [% FOREACH tag IN tags %]
+        <tr>
+            <td>[% tag.tag_text | html %]</td>
+            <td>[% tag.tag_stub | html %]</td>
+            <td><a href="/.admin/edit_tag?tag_no=[% tag.tag_no%]">編集する</a></td>
+        </tr>
+        [% END %]
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>タグ名</th>
+            <th>スタブ</th>
+            <th>削除</th>
+        </tr>
+    </tfoot>
+</table>
+</form>

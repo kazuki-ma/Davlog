@@ -1,0 +1,12 @@
+<div class="section section_2 indivisual_entry">
+    <div class="section_header"><h2>Tags</h2></div>
+    <div class="section_body">
+            <ul>
+[% FOREACH tag IN tags%]
+                <li><a href="[%tag.uri | uri%]">[% tag.title | html %]</a></li>
+[% END %]
+            </ul>
+
+    </div>
+    <div class="section_footer"></div>
+</div>

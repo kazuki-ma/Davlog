@@ -1,0 +1,6 @@
+<h2>削除の確認</h2>
+<div>
+    タグ [%tag.fif.title%] の削除が完了しました．
+    
+    <a href="/.admin/tag/">タグ一覧に戻る</a>
+</div>

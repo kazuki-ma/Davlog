@@ -1,0 +1,7 @@
+[%- SET page = entries.search_rs({},{rows=>3}).page(page);
+pager = page.pager(); %]
+
+[%- FOREACH entry IN page.all %]
+    [%- INCLUDE WWW/entry.tt %]
+[%- END %]
+

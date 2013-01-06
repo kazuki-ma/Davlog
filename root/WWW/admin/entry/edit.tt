@@ -1,0 +1,49 @@
+[%IF preview %]
+<div id="entry_post_preview" class="preview" style="border: solid 1px gray; padding: 1em; margin: 1em 0;">
+    <h2>[% preview.value.title | html %]</h2>
+    <div>
+        [% preview_text %]
+    </div>
+    [%FOREACH tag IN preview.value.tags %]
+        <li>[%tag | html%]</li>
+    [%END%]
+</div>
+[%END%]
+
+<form method="post">
+    <dl
+    [%IF preview %]
+    style="display: none"
+    [%END%]
+    >
+        <dt>Entry Title</dt>
+        <dd>[% entry_form.field('title').render_element %]</dd>
+        <dt>Stub</dt>
+        <dd>[% entry_form.field('stub').render_element %]</dd>
+        <dt>Entry Text</dt>
+        <dd>[% entry_form.field('text').render_element %]</dd>
+        <dt>Entry Tags</dt>
+        <dd>
+            [% FOREACH tag IN tags %]
+                <input type="checkbox" name="entry.tags" value="[%tag.stub | html%]"
+                [% FOREACH tag2 IN entry_tags %]
+                    [% IF tag.stub == tag2.stub %]
+                    checked="checked" 
+                    [% END %]
+                [% END %]
+                 /><label for="[%tag.stub | html%]">[%tag.title | html%]</label>
+            [% END %]
+            <a href="/.admin/tag" target="_blank">タグを追加する</a>
+        </dd>
+        <dt>Entry Date</dt>
+        <dd>[% entry_form.field('date').render_element %]</dd>
+    </dl>
+    [%IF preview %]    	
+    	<button name="action" value="post">投稿</button>
+    	<button name="action" value="edit">編集</button>
+    [%ELSE%]
+    	<button name="action" value="preview">プレビュー</button>
+    [%END%]
+	<button name="action" value="delete">削除</button>
+    
+</form>
